@@ -4,21 +4,23 @@ const fs = require("fs");
 const path = require("path");
 
 const isLocal = process.env.NODE_ENV !== "production";
-//const isLocal = false;
+// isLocal = false;
 
 // Utiliza las variables de entorno correspondientes
-const DB_USER = isLocal ? process.env.DB_USER : process.env.RW_USERdb;
-const DB_PASSWORD = isLocal ? process.env.DB_PASSWORD : process.env.RW_PASSWORD;
-const DB_HOST = isLocal ? process.env.DB_HOST : process.env.RW_URLdb;
-const DB_PORT = isLocal ? process.env.DB_PORT : process.env.RW_PORTdb;
-const DB_NAME = isLocal ? process.env.DB_NAME : process.env.RW_DB_NAME;
+const DB_USER = isLocal ? process.env.DB_USER : process.env.POSTGRES_USER;
+const DB_PASSWORD = isLocal
+  ? process.env.DB_PASSWORD
+  : process.env.POSTGRES_PASSWORD;
+const DB_HOST = isLocal ? process.env.DB_HOST : process.env.POSTGRES_HOST;
+const DB_PORT = isLocal ? process.env.DB_PORT : process.env.DEPLOYED_PORTDB;
+const DB_NAME = isLocal ? process.env.DB_NAME : process.env.POSTGRES_DATABASE;
 
 // console.log(
 //   `ACAAAAA, postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`
 // );
 // Crea la conexión a la base de datos
 const sequelize = new Sequelize(
-  `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+  `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=require`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed

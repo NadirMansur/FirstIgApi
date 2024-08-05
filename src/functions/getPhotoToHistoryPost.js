@@ -1,13 +1,12 @@
-const getAllProd = require("./dbFunctions/getAllProd");
+const getAllPhotos = require("./dbFunctions/getAllPhotos");
 const pickRandom = require("../utils/pickRandom");
 
-const getProdToPost = async () => {
-  console.log("getProdToPost");
-  const prods = await getAllProd();
-  const prod = pickRandom(prods, 1);
-  const res = prod[0].dataValues;
-
-  return res.img_1;
+const getPhotoToHistoryPost = async () => {
+  console.log("getPhotoToHistoryPost", new Date());
+  const photos = await getAllPhotos();
+  const photo = pickRandom(photos, 1);
+  const res = photo[0].dataValues;
+  return res.img;
 };
 
-module.exports = getProdToPost;
+module.exports = getPhotoToHistoryPost;

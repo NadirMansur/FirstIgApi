@@ -7,7 +7,8 @@ const cronPostReel = require("./src/functions/cron/cronPostReel.js");
 const cronPostPromo1_2History = require("./src/functions/cron/cronPostPromo1_2History.js");
 const cronPostPromo1History = require("./src/functions/cron/cronPostPromo1History.js");
 const cronPostMarcaHistory = require("./src/functions/cron/cronPostMarcaHistory.js");
-// const getAllProd = require("./src/functions/dbFunctions/getAllProd.js");
+const cronActivateBackend = require("./src/functions/cron/cronActivateBackend.js");
+const cronJobsServices = require("./src/services/CronService.js");
 
 async function main() {
   try {
@@ -24,7 +25,8 @@ async function main() {
         cronPostPromo1_2History();
         cronPostPromo1History();
         cronPostMarcaHistory();
-        // getAllProd();
+        cronActivateBackend();
+        cronJobsServices.stopAllCronJobs();
       });
     });
   } catch (error) {

@@ -31,9 +31,9 @@ class CronService {
 
   // Guardar CronJob
   cronJobSave(title, cronjob) {
-    this.inActiveCronJobs.push({
+    this.activeCronJobs.push({
       title: title,
-      state: false,
+      state: true,
       cronjob: cronjob,
     });
   }

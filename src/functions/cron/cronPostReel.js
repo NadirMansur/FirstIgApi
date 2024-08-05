@@ -13,7 +13,7 @@ const cronPostReel = () => {
     },
     null,
     true,
-    'America/Argentina/Buenos_Aires'
+    "America/Argentina/Buenos_Aires"
   );
   cronJobsServices.cronJobSave("cronPostReel", cronjob);
 };
