@@ -6,8 +6,7 @@ const getPhotoToHistoryPost = require("../getPhotoToHistoryPost.js");
 // Tarea progamada para postear un producto aleatorio en IG
 const cronPostHistory = () => {
   const cronjob = new CronJob(
-    "*/01 * * * *", // Cada 30 segudnos
-    // "0 9-21/2 * * *", // cada 2 horas a partir de las 9 AM hasta las 9 PM
+    "0 9-21/2 * * *", // cada 2 horas a partir de las 9 AM hasta las 9 PM
     async () => {
       const link = await getPhotoToHistoryPost();
       await uploadStoryFromWeb(link);

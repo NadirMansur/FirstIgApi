@@ -4,11 +4,12 @@ const igService = new InstagramService();
 
 // post photo
 const postPhotoToInstaFromWeb = async (link, caption) => {
+  console.log("postPhotoToInstaFromWeb");
+
   try {
     await igService.login();
-
     const imageBuffer = await get({
-      url: link, 
+      url: link,
       encoding: null, // only this way a Buffer is returned
     });
 
@@ -18,6 +19,8 @@ const postPhotoToInstaFromWeb = async (link, caption) => {
     });
     return publishResult;
   } catch (err) {
+    console.log("error al publicar reel", err);
+
     return err;
   }
 };
