@@ -9,7 +9,7 @@ const cronPostPromo1_2History = require("./src/functions/cron/cronPostPromo1_2Hi
 const cronPostPromo1History = require("./src/functions/cron/cronPostPromo1History.js");
 const cronPostMarcaHistory = require("./src/functions/cron/cronPostMarcaHistory.js");
 const cronActivateBackend = require("./src/functions/cron/cronActivateBackend.js");
-const cronJobsServices = require("./src/services/CronService.js");
+// const cronJobsServices = require("./src/services/CronService.js");
 
 async function main() {
   try {
@@ -26,7 +26,7 @@ async function main() {
         cronPostPromo1History();
         cronPostMarcaHistory();
         cronActivateBackend();
-        cronJobsServices.stopAllCronJobs();
+        // cronJobsServices.stopAllCronJobs();
       });
     });
     console.log("Connection has been established successfully.");
