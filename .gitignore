@@ -21,11 +21,6 @@ lib-cov
 
 
 #ignore
-src/functions/examples/
-src/functions/openAi/ignore
-src/controllers/ignore/
-sticker-builder/
-src/functions/cron/ignore
 
 # Coverage directory used by tools like istanbul
 coverage
