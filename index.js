@@ -1,3 +1,4 @@
+// index.js
 require("dotenv").config();
 const app = require("./src/app.js");
 const { conn } = require("./src/db.js");
@@ -14,7 +15,6 @@ async function main() {
   try {
     // Autenticar la conexión con la base de datos
     await conn.authenticate();
-    console.log("Connection has been established successfully.");
     // Sincronizar el modelo de la base de datos
     conn.sync({ /* force: true */ alter: true }).then(() => {
       // Iniciar el servidor web en el puerto especificado
@@ -29,6 +29,7 @@ async function main() {
         cronJobsServices.stopAllCronJobs();
       });
     });
+    console.log("Connection has been established successfully.");
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }

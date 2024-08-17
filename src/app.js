@@ -1,3 +1,4 @@
+// app.js
 require("dotenv").config();
 const createError = require("http-errors"); // FUNCION PARA DEVOLVER ERRORES DEL SERVIDOR
 const express = require("express");
